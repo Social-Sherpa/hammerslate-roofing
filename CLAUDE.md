@@ -112,11 +112,16 @@ Not applicable yet. This project is a single landing page. Content collections w
 
 ## Deployment
 
-- **Hosting:** Cloudflare Pages
+- **Hosting:** Cloudflare Pages (connected to GitHub via git integration)
+- **Repository:** https://github.com/Social-Sherpa/hammerslate-roofing
 - **Project name:** `hammerslate-staging`
 - **Staging URL:** https://hammerslate-staging.pages.dev
 - **Custom domain:** https://get.hammerslateroofing.co.uk
-- **Deploy command:** `npx astro build && npx wrangler pages deploy dist --project-name=hammerslate-staging`
+- **Auto-deploy:** Push to `master` triggers a Cloudflare Pages build and deploys to production automatically.
+- **Preview deploys:** Push to any other branch to get a unique preview URL (e.g. `branch-name.hammerslate-staging.pages.dev`).
+- **Build command:** `npm run build`
+- **Build output directory:** `dist`
+- **Local development:** Clone from GitHub to a local directory (not Google Drive). Run `npm install` then `npm run dev`.
 - **Page route pattern:** `/[town]/` (e.g. `/enfield/`). Root `/` redirects to `/enfield/`.
 - **Future location pages:** Add `src/pages/[town]/index.astro` for each new area.
 
