@@ -1,0 +1,24 @@
+---
+import LandingLayout from '../../layouts/LandingLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const phone = '020 4634 7883';
+const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
+---
+
+<LandingLayout
+  title="Thank You | Hammerslate Roofing"
+  description="Thank you for your enquiry. We'll be in touch shortly."
+>
+  <Header />
+  <section class="thank-you">
+    <div class="container">
+      <div class="thank-you__icon">&#10003;</div>
+      <h1>Thank You!</h1>
+      <p>Your quote request has been received. We'll get back to you within a few hours.</p>
+      <p class="thank-you__phone">Or call us now: <a href={phoneHref}>{phone}</a></p>
+    </div>
+  </section>
+  <Footer />
+</LandingLayout>

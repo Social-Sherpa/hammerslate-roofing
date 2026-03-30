@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+import teamImg from '../assets/images/roofing-team-north-london-street.webp';
+
+interface Props {
+  phone?: string;
+}
+
+const { phone = '020 4634 7883' } = Astro.props;
+---
+
+<section class="section section--off-white">
+  <div class="container">
+    <div class="about-split">
+      <div class="about-split__image">
+        <Image
+          src={teamImg}
+          alt="Hammerslate Roofing team on a residential street in Enfield"
+          widths={[400, 600]}
+          loading="lazy"
+        />
+      </div>
+      <div class="about-split__content">
+        <h2>Serving Enfield for Over 30 Years</h2>
+        <p>Hammerslate Roofing is a family-run business led by Daniel, who personally oversees every project from first inspection to final clean-up. We built our reputation on doing honest work at fair prices, and every one of our 97+ reviews reflects that.</p>
+        <p>We don't believe in hidden charges or call-out fees. You'll get a detailed written quote before any work starts, and every job is backed by our 15-year warranty.</p>
+        <ul class="about-split__checks">
+          <li>Fully insured and qualified team</li>
+          <li>Free pre-work survey and inspection</li>
+          <li>15-year workmanship warranty</li>
+          <li>No call-out fees, no hidden costs</li>
+          <li>24/7 emergency availability</li>
+        </ul>
+        <a href="#quote-form" class="btn btn--action">Get a Free Quote</a>
+      </div>
+    </div>
+  </div>
+</section>

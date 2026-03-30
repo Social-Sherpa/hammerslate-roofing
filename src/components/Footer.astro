@@ -1,0 +1,45 @@
+---
+interface Props {
+  phone?: string;
+}
+
+const { phone = '020 4634 7883' } = Astro.props;
+const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">Hammerslate Roofing</div>
+        <p>Family-run roofing experts serving Enfield. Fully insured, fully guaranteed, and always here to help.</p>
+        <p style="margin-top:12px;"><a href={phoneHref} style="color:var(--white);">{phone}</a></p>
+        <p>195-197 Wood Street, London E17 3NU</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li>New Roofs / Re-Roofs</li>
+          <li>Roof Repairs</li>
+          <li>Flat Roofs</li>
+          <li>Guttering &amp; Fascias</li>
+          <li>Chimney Repairs</li>
+          <li>Emergency Repairs</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Areas We Cover</h4>
+        <ul>
+          <li>Enfield</li>
+          <li>Walthamstow</li>
+          <li>North London</li>
+          <li>Surrounding areas</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; {new Date().getFullYear()} Hammerslate Roofing. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>

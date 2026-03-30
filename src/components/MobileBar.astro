@@ -1,0 +1,13 @@
+---
+interface Props {
+  phone?: string;
+}
+
+const { phone = '020 4634 7883' } = Astro.props;
+const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
+---
+
+<div class="mobile-bar">
+  <a href={phoneHref} class="mobile-bar__call">Call Now</a>
+  <a href="#quote-form" class="mobile-bar__quote">Get a Free Quote</a>
+</div>

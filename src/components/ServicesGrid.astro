@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import newRoofImg from '../assets/images/new-roof-slate-tiles-british-house.webp';
+import roofRepairImg from '../assets/images/roof-repair-replacing-broken-tiles.webp';
+import flatRoofImg from '../assets/images/flat-roof-epdm-rubber-membrane.webp';
+import gutteringImg from '../assets/images/guttering-fascias-upvc-british-house.webp';
+import chimneyImg from '../assets/images/chimney-repair-repointing-leadwork.webp';
+import emergencyImg from '../assets/images/emergency-roof-repair-storm-damage.webp';
+
+interface Props {
+  phone?: string;
+}
+
+const { phone = '020 4634 7883' } = Astro.props;
+const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
+
+const services = [
+  { label: 'New Roof / Re-Roof', img: newRoofImg, alt: 'New slate tile roof fitted on a British semi-detached house' },
+  { label: 'Roof Repairs', img: roofRepairImg, alt: 'Roofer replacing broken tiles on an Enfield terraced house' },
+  { label: 'Flat Roofs', img: flatRoofImg, alt: 'Completed EPDM rubber flat roof on a house extension' },
+  { label: 'Guttering & Fascias', img: gutteringImg, alt: 'New white UPVC guttering and fascia boards on a brick house' },
+  { label: 'Chimney Repairs', img: chimneyImg, alt: 'Chimney stack being repointed with fresh mortar and lead flashing' },
+  { label: 'Emergency Roof Repair', img: emergencyImg, alt: 'Emergency tarpaulin repair on a storm-damaged roof' },
+];
+---
+
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <h2>Professional Roofing Services</h2>
+      <p>We handle everything from emergency leak repairs to complete new roofs. Every job includes a free survey and a fixed written quote.</p>
+    </div>
+    <div class="services-grid">
+      {services.map((s) => (
+        <div class="service-card">
+          <Image src={s.img} alt={s.alt} widths={[300, 450]} loading="lazy" />
+          <div class="service-card__overlay"></div>
+          <div class="service-card__label">{s.label}</div>
+        </div>
+      ))}
+    </div>
+    <div class="mid-cta">
+      <a href="#quote-form" class="btn btn--action">Get Your Free Roofing Quote</a>
+      <span class="mid-cta__phone">Or call us now: <a href={phoneHref}>{phone}</a></span>
+    </div>
+  </div>
+</section>

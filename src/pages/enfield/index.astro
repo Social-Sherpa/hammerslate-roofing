@@ -1,0 +1,43 @@
+---
+import LandingLayout from '../../layouts/LandingLayout.astro';
+import Header from '../../components/Header.astro';
+import TrustStrip from '../../components/TrustStrip.astro';
+import Hero from '../../components/Hero.astro';
+import PlatformRatings from '../../components/PlatformRatings.astro';
+import ServicesGrid from '../../components/ServicesGrid.astro';
+import About from '../../components/About.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import WhyChooseUs from '../../components/WhyChooseUs.astro';
+import Steps from '../../components/Steps.astro';
+import Faq from '../../components/Faq.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import Accreditations from '../../components/Accreditations.astro';
+import UspBar from '../../components/UspBar.astro';
+import Footer from '../../components/Footer.astro';
+import MobileBar from '../../components/MobileBar.astro';
+---
+
+<LandingLayout
+  title="Trusted Roofers Enfield | Hammerslate Roofing"
+  description="Family-run roofing experts with 30 years experience serving Enfield. Free quotes, no hidden fees, 15-year warranty. Call 020 4634 7883."
+>
+  <Header />
+  <TrustStrip />
+  <Hero
+    headline="Enfield's Trusted Roofing Experts"
+    subtitle="Family-run roofers with 30 years of hands-on experience. We fix it right, quote it fair, and guarantee every job."
+    webhookUrl="https://services.leadconnectorhq.com/hooks/vH7n7Mt6VriqetoGqQOY/webhook-trigger/daf9cf58-cbd0-4a44-888e-548ce91279df"
+  />
+  <Accreditations />
+  <ServicesGrid />
+  <About />
+  <Testimonials />
+  <PlatformRatings />
+  <WhyChooseUs />
+  <Steps />
+  <Faq />
+  <FinalCta />
+  <UspBar />
+  <Footer />
+  <MobileBar />
+</LandingLayout>

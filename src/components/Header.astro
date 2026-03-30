@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logos/hammerslate-logo-transparent.png';
+import reviewIcons from '../assets/logos/review-platform-icons.webp';
+import checkatradeLogo from '../assets/logos/checkatrade-approved-roofer.png';
+
+interface Props {
+  phone?: string;
+}
+
+const { phone = '020 4634 7883' } = Astro.props;
+const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
+---
+
+<header class="header">
+  <div class="header__inner">
+    <a class="header__logo" href="#">
+      <Image src={logo} alt="Hammerslate Roofing logo" width={376} quality={100} format="png" loading="eager" />
+    </a>
+
+    <div class="header__right">
+      <div class="header__badges">
+        <div class="header__badge header__badge--reviews">
+          <Image src={reviewIcons} alt="Google, Yell, Checkatrade and Facebook review platforms" width={400} quality={100} loading="eager" />
+          <div class="header__badge-text">
+            <span class="header__badge-score"><strong>Rated 4.9 Based On</strong></span>
+            <span class="header__badge-detail">97+ Verified Reviews</span>
+          </div>
+        </div>
+
+        <div class="header__badge-divider"></div>
+
+        <div class="header__badge header__badge--checkatrade">
+          <Image src={checkatradeLogo} alt="Checkatrade approved roofer" width={400} quality={100} format="png" loading="eager" />
+          <div class="header__badge-text">
+            <span class="header__badge-score"><strong>Rated 10/10</strong> (40+ Reviews)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header__phone">
+        <div>
+          <div class="header__phone-number"><a href={phoneHref}>{phone}</a></div>
+          <div class="header__phone-label">Call Us For a Free Quote</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

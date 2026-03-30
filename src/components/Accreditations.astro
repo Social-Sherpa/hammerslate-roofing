@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import nhbc from '../assets/logos/NHBC.webp';
+import constructionline from '../assets/logos/Constructiononline.webp';
+import masterBuilders from '../assets/logos/MasterBuilders.webp';
+import chas from '../assets/logos/CHAS.webp';
+import nfrc from '../assets/logos/NFRC.webp';
+import corc from '../assets/logos/Confederation-of-roofing-contractors.webp';
+
+const logos = [
+  { src: nhbc, alt: 'NHBC accredited' },
+  { src: constructionline, alt: 'Constructionline certified' },
+  { src: masterBuilders, alt: 'Federation of Master Builders member' },
+  { src: chas, alt: 'CHAS accredited contractor' },
+  { src: nfrc, alt: 'NFRC leading roofing excellence' },
+  { src: corc, alt: 'Confederation of Roofing Contractors member' },
+];
+---
+
+<section class="accreditations">
+  <div class="accreditations__inner container">
+    {logos.map((logo) => (
+      <div class="accreditations__item">
+        <Image src={logo.src} alt={logo.alt} width={400} quality={100} loading="lazy" />
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trusted Roofers North London | Hammerslate Roofing</title>
+  <meta name="description" content="Family-run roofing experts with 30 years experience serving North London. Free quotes, no hidden fees, 15-year warranty. Call 020 4634 7883.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       DESIGN TOKENS
+       ============================================ */
+    :root {
+      --brand: #1c2130;
+      --brand-light: #272d3e;
+      --action: #f0882d;
+      --action-hover: #db7a22;
+      --gold: #f4b942;
+      --white: #ffffff;
+      --off-white: #f9f9f7;
+      --light-grey: #f2f1ef;
+      --mid-grey: #e0dfdd;
+      --border: #e5e4e2;
+      --text: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --text-light: #6b6b6b;
+      --green-tick: #2a9d5c;
+      --radius: 6px;
+      --radius-lg: 10px;
+      --max-width: 1140px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    h1, h2, h3 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text);
+    }
+
+    h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+    h2 { font-size: clamp(1.75rem, 3.5vw, 2.4rem); }
+    h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
+
+    /* ============================================
+       HEADER
+       ============================================ */
+    .header {
+      background: var(--brand);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      gap: 16px;
+    }
+
+    .header__logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+
+    .header__logo span {
+      color: var(--action);
+    }
+
+    .header__reviews {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.85rem;
+    }
+
+    .header__reviews .stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .header__phone {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 1px solid rgba(255,255,255,0.15);
+      padding-left: 20px;
+    }
+
+    .header__phone-label {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .header__phone-number {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+
+    .header__phone-number a {
+      color: var(--white);
+    }
+
+    /* ============================================
+       TRUST STRIP
+       ============================================ */
+    .trust-strip {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .trust-strip__inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .trust-strip__item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
+    }
+
+    .trust-strip__tick {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green-tick);
+      flex-shrink: 0;
+    }
+
+    .trust-strip__tick svg {
+      width: 12px;
+      height: 12px;
+      fill: none;
+      stroke: var(--white);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .hero {
+      background: linear-gradient(135deg, var(--brand) 0%, #111420 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('images/hero-roof-work.jpg') center/cover no-repeat;
+      opacity: 0.18;
+    }
+
+    .hero__inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 56px;
+      align-items: start;
+      padding: 72px 24px 80px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .hero__content {
+      color: var(--white);
+      padding-top: 16px;
+    }
+
+    .hero__rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .hero__rating .stars {
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    .hero__title {
+      color: var(--white);
+      margin-bottom: 20px;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      line-height: 1.1;
+    }
+
+    .hero__subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 32px;
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .hero__bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .hero__bullets li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .hero__bullets li::before {
+      content: '';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--action);
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .hero__cta-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================
+       FORM CARD
+       ============================================ */
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.25);
+    }
+
+    .form-card__accent {
+      height: 4px;
+      background: var(--action);
+    }
+
+    .form-card__body {
+      padding: 32px 28px 28px;
+    }
+
+    .form-card__title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    .form-card__subtitle {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .form-card label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-card input,
+    .form-card select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: var(--white);
+      color: var(--text);
+    }
+
+    .form-card input:focus,
+    .form-card select:focus {
+      outline: none;
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(28,33,48,0.08);
+    }
+
+    .form-card select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b6b6b' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .form-card__privacy {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .form-card__or {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .form-card__or a {
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 2px;
+    }
+
+    /* ============================================
+       BUTTONS
+       ============================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 15px 32px;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+      text-align: center;
+    }
+
+    .btn--action {
+      background: var(--action);
+      color: var(--white);
+    }
+
+    .btn--action:hover {
+      background: var(--action-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(240,136,45,0.35);
+    }
+
+    .btn--full {
+      width: 100%;
+      padding: 14px 28px;
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.35);
+    }
+
+    .btn--outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--action);
+      border: 2px solid var(--action);
+    }
+
+    .btn--ghost:hover {
+      background: var(--action);
+      color: var(--white);
+    }
+
+    /* ============================================
+       PLATFORM RATINGS STRIP
+       ============================================ */
+    .platforms {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 40px 0;
+    }
+
+    .platforms__inner {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .platform {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 48px;
+      border-right: 1px solid var(--border);
+    }
+
+    .platform:last-child {
+      border-right: none;
+    }
+
+    .platform__logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .platform__logo--google { color: var(--text); }
+    .platform__logo--facebook { color: #1877F2; }
+    .platform__logo--checkatrade { color: #00A651; }
+
+    .platform__stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+    }
+
+    .platform__meta {
+      font-size: 0.82rem;
+      color: var(--text-light);
+    }
+
+    .platform__meta strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* ============================================
+       SECTIONS
+       ============================================ */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section--grey {
+      background: var(--light-grey);
+    }
+
+    .section--off-white {
+      background: var(--off-white);
+    }
+
+    .section__header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 52px;
+    }
+
+    .section__header p {
+      color: var(--text-secondary);
+      margin-top: 14px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       SERVICES GRID
+       ============================================ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .service-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--mid-grey);
+      cursor: pointer;
+    }
+
+    .service-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover .service-card__img {
+      transform: scale(1.05);
+    }
+
+    .service-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 70%);
+    }
+
+    .service-card__label {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* ============================================
+       MID-PAGE CTA
+       ============================================ */
+    .mid-cta {
+      text-align: center;
+      padding: 32px 0 0;
+    }
+
+    .mid-cta__phone {
+      display: block;
+      margin-top: 14px;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .mid-cta__phone a {
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    /* ============================================
+       ABOUT
+       ============================================ */
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .about-split__image {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--mid-grey);
+      box-shadow: var(--shadow-md);
+    }
+
+    .about-split__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-split__content h2 {
+      margin-bottom: 20px;
+    }
+
+    .about-split__content p {
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+      line-height: 1.7;
+    }
+
+    .about-split__checks {
+      list-style: none;
+      margin: 24px 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .about-split__checks li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .about-split__checks li::before {
+      content: '';
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--green-tick);
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* ============================================
+       TESTIMONIALS
+       ============================================ */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .testimonial-card__quote-mark {
+      font-family: Georgia, serif;
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--action);
+      margin-bottom: 4px;
+      opacity: 0.5;
+    }
+
+    .testimonial-card__headline {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .testimonial-card__body {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 18px;
+      border-top: 1px solid var(--light-grey);
+    }
+
+    .testimonial-card__author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .testimonial-card__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--light-grey);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .testimonial-card__name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-card__job {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .testimonial-card__stars {
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .testimonial-card__platform {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .testimonial-card__rating {
+      text-align: right;
+    }
+
+    /* ============================================
+       USP / WHY CHOOSE US
+       ============================================ */
+    .usp-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .usp-item {
+      display: flex;
+      gap: 20px;
+      padding: 28px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+    }
+
+    .usp-item__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .usp-item__icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--brand);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .usp-item h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .usp-item p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       PROCESS / STEPS
+       ============================================ */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      text-align: center;
+      position: relative;
+    }
+
+    .step {
+      padding: 0 16px;
+    }
+
+    .step__number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: var(--white);
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .step h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       FAQ
+       ============================================ */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--mid-grey);
+    }
+
+    .faq-item__question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 44px 22px 0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      position: relative;
+      line-height: 1.4;
+    }
+
+    .faq-item__question::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--text-light);
+      transition: transform 0.2s;
+    }
+
+    .faq-item.active .faq-item__question::after {
+      content: '\2212';
+    }
+
+    .faq-item__answer {
+      display: none;
+      padding: 0 0 22px;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .faq-item.active .faq-item__answer {
+      display: block;
+    }
+
+    /* ============================================
+       FINAL CTA
+       ============================================ */
+    .final-cta {
+      background: var(--brand);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .final-cta__subtitle {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .final-cta__phone {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      margin-bottom: 28px;
+    }
+
+    .final-cta__phone a { color: var(--white); }
+
+    .final-cta__row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .final-cta__reassurance {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ============================================
+       USP BAR (above footer, like Hodgson/Aventus)
+       ============================================ */
+    .usp-bar {
+      background: var(--off-white);
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+    }
+
+    .usp-bar__inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .usp-bar__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 0 36px;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .usp-bar__item:last-child {
+      border-right: none;
+    }
+
+    .usp-bar__item svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--text-secondary);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .usp-bar__item span {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background: var(--brand);
+      color: rgba(255,255,255,0.6);
+      padding: 52px 0 32px;
+      font-size: 0.88rem;
+    }
+
+    .footer__inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .footer__brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer p {
+      line-height: 1.6;
+    }
+
+    .footer h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+
+    .footer ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer a:hover {
+      color: var(--white);
+    }
+
+    .footer__bottom {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+
+    /* ============================================
+       MOBILE STICKY BAR
+       ============================================ */
+    .mobile-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--white);
+      border-top: 1px solid var(--mid-grey);
+      padding: 8px 12px;
+      gap: 8px;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+    }
+
+    .mobile-bar a {
+      flex: 1;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .mobile-bar__call {
+      background: var(--action);
+      color: var(--white);
+    }
+
+    .mobile-bar__quote {
+      background: var(--brand);
+      color: var(--white);
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 1024px) {
+      .hero__inner {
+        grid-template-columns: 1fr;
+        padding: 48px 24px;
+      }
+
+      .form-card {
+        max-width: 480px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer__inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header__reviews { display: none; }
+
+      .header__phone-label { display: none; }
+
+      .header__phone {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      .trust-strip__inner {
+        gap: 12px 20px;
+        font-size: 0.82rem;
+      }
+
+      .hero__inner { padding: 36px 20px 44px; }
+
+      .hero__subtitle { font-size: 1rem; }
+
+      .section { padding: 56px 0; }
+
+      .about-split {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .usp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .platforms__inner {
+        gap: 0;
+      }
+
+      .platform {
+        padding: 8px 24px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        width: 100%;
+      }
+
+      .platform:last-child {
+        border-bottom: none;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .usp-bar__inner {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .usp-bar__item {
+        border-right: none;
+        padding: 0;
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      .footer__inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .mobile-bar {
+        display: flex;
+      }
+
+      body { padding-bottom: 70px; }
+
+      .final-cta__phone { font-size: 1.5rem; }
+
+      .final-cta { padding: 56px 0; }
+    }
+
+    @media (max-width: 480px) {
+      .trust-strip__inner {
+        gap: 8px 16px;
+        justify-content: flex-start;
+        padding: 0 8px;
+      }
+
+      .hero__cta-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn { width: 100%; }
+
+      .form-card__body {
+        padding: 24px 20px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__logo">Hammer<span>slate</span> Roofing</div>
+      <div class="header__reviews">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span>Rated 4.9 from 97+ reviews</span>
+      </div>
+      <div class="header__phone">
+        <div>
+          <div class="header__phone-label">Call for free quotes</div>
+          <div class="header__phone-number"><a href="tel:02046347883">020 4634 7883</a></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== TRUST STRIP ========== -->
+  <div class="trust-strip">
+    <div class="trust-strip__inner container">
+      <span class="trust-strip__item"><span class="trust-strip__tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> 30 Years Experience</span>
+      <span class="trust-strip__item"><span class="trust-strip__tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Fully Insured</span>
+      <span class="trust-strip__item"><span class="trust-strip__tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> 15-Year Warranty</span>
+      <span class="trust-strip__item"><span class="trust-strip__tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> No Hidden Fees</span>
+      <span class="trust-strip__item"><span class="trust-strip__tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Free Quotes</span>
+    </div>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <div class="hero__rating">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>Rated 5/5 by customers</span>
+        </div>
+        <h1 class="hero__title">North London's Trusted Roofing Experts</h1>
+        <p class="hero__subtitle">Family-run roofers with 30 years of hands-on experience. We fix it right, quote it fair, and guarantee every job.</p>
+        <ul class="hero__bullets">
+          <li>Free, no-obligation written quotes</li>
+          <li>Same-day quotes available</li>
+          <li>All work backed by a 15-year warranty</li>
+          <li>24/7 emergency call-outs</li>
+        </ul>
+        <div class="hero__cta-row">
+          <a href="tel:02046347883" class="btn btn--action">Call 020 4634 7883</a>
+          <a href="#quote-form" class="btn btn--outline">Get a Free Quote</a>
+        </div>
+      </div>
+
+      <div class="form-card" id="quote-form">
+        <div class="form-card__accent"></div>
+        <div class="form-card__body">
+          <div class="form-card__title">Get Your Free Quote</div>
+          <p class="form-card__subtitle">We'll get back to you within a few hours</p>
+          <form action="#" method="POST">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Full name" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Best number to reach you" required>
+
+            <label for="postcode">Postcode</label>
+            <input type="text" id="postcode" name="postcode" placeholder="e.g. N14 5QR">
+
+            <label for="service">What Do You Need?</label>
+            <select id="service" name="service">
+              <option value="">Please choose</option>
+              <option value="roof-repair">Roof Repair</option>
+              <option value="new-roof">New Roof / Re-Roof</option>
+              <option value="flat-roof">Flat Roof</option>
+              <option value="guttering">Guttering &amp; Fascias</option>
+              <option value="chimney">Chimney Repair</option>
+              <option value="emergency">Emergency Repair</option>
+              <option value="other">Other</option>
+            </select>
+
+            <button type="submit" class="btn btn--action btn--full">Get My Free Quote</button>
+          </form>
+          <p class="form-card__privacy">No spam. No obligation. Just a straightforward quote.</p>
+          <p class="form-card__or">Or call us now: <a href="tel:02046347883">020 4634 7883</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PLATFORM RATINGS ========== -->
+  <div class="platforms">
+    <div class="platforms__inner container">
+      <div class="platform">
+        <div class="platform__logo platform__logo--google">
+          <span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span>
+        </div>
+        <div class="platform__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="platform__meta">Rated <strong>4.7</strong> from <strong>28</strong> reviews</div>
+      </div>
+      <div class="platform">
+        <div class="platform__logo platform__logo--facebook">facebook</div>
+        <div class="platform__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="platform__meta">Rated <strong>5.0</strong> from <strong>16</strong> reviews</div>
+      </div>
+      <div class="platform">
+        <div class="platform__logo platform__logo--checkatrade">Checkatrade</div>
+        <div class="platform__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="platform__meta">Rated <strong>10/10</strong> from <strong>40+</strong> reviews</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Professional Roofing Services</h2>
+        <p>We handle everything from emergency leak repairs to complete new roofs. Every job includes a free survey and a fixed written quote.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div style="width:100%;height:100%;background:#8B9DA3;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.85rem;">New Roof / Re-Roof photo</div>
+          <div class="service-card__overlay"></div>
+          <div class="service-card__label">New Roof / Re-Roof</div>
+        </div>
+        <div class="service-card">
+          <div style="width:100%;height:100%;background:#7A8E8B;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.85rem;">Roof Repairs photo</div>
+          <div class="service-card__overlay"></div>
+          <div class="service-card__label">Roof Repairs</div>
+        </div>
+        <div class="service-card">
+          <div style="width:100%;height:100%;background:#96A3A0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.85rem;">Flat Roofs photo</div>
+          <div class="service-card__overlay"></div>
+          <div class="service-card__label">Flat Roofs</div>
+        </div>
+        <div class="service-card">
+          <div style="width:100%;height:100%;background:#889490;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.85rem;">Guttering &amp; Fascias photo</div>
+          <div class="service-card__overlay"></div>
+          <div class="service-card__label">Guttering &amp; Fascias</div>
+        </div>
+        <div class="service-card">
+          <div style="width:100%;height:100%;background:#7D908C;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.85rem;">Chimney Repairs photo</div>
+          <div class="service-card__overlay"></div>
+          <div class="service-card__label">Chimney Repairs</div>
+        </div>
+        <div class="service-card">
+          <div style="width:100%;height:100%;background:#6E7F7C;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.85rem;">Emergency Repairs photo</div>
+          <div class="service-card__overlay"></div>
+          <div class="service-card__label">Emergency Roof Repair</div>
+        </div>
+      </div>
+      <div class="mid-cta">
+        <a href="#quote-form" class="btn btn--action">Get Your Free Roofing Quote</a>
+        <span class="mid-cta__phone">Or call us now: <a href="tel:02046347883">020 4634 7883</a></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section section--off-white">
+    <div class="container">
+      <div class="about-split">
+        <div class="about-split__image">
+          <div style="width:100%;height:100%;min-height:320px;background:#8B9DA3;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.85rem;">Daniel and team on-site photo</div>
+        </div>
+        <div class="about-split__content">
+          <h2>Serving North London for Over 30 Years</h2>
+          <p>Hammerslate Roofing is a family-run business led by Daniel, who personally oversees every project from first inspection to final clean-up. We built our reputation on doing honest work at fair prices, and every one of our 97+ reviews reflects that.</p>
+          <p>We don't believe in hidden charges or call-out fees. You'll get a detailed written quote before any work starts, and every job is backed by our 15-year warranty.</p>
+          <ul class="about-split__checks">
+            <li>Fully insured and qualified team</li>
+            <li>Free pre-work survey and inspection</li>
+            <li>15-year workmanship warranty</li>
+            <li>No call-out fees, no hidden costs</li>
+            <li>24/7 emergency availability</li>
+          </ul>
+          <a href="#quote-form" class="btn btn--action">Get a Free Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>What Our Customers Say</h2>
+        <p>Real reviews from real homeowners across North London</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-card__quote-mark">"</div>
+          <div class="testimonial-card__headline">Honest advice and a fair price</div>
+          <p class="testimonial-card__body">Had a nightmare with a persistent leak every time it rained heavy. Hammerslate came out, found the cracked tiles that two other builders had missed, and sorted it the same afternoon. No hard sell, just honest advice and a fair price. Really relieved to have it watertight again.</p>
+          <div class="testimonial-card__footer">
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">V</div>
+              <div>
+                <div class="testimonial-card__name">Verified Customer</div>
+                <div class="testimonial-card__job">Roof Repair</div>
+              </div>
+            </div>
+            <div class="testimonial-card__rating">
+              <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div class="testimonial-card__platform">Google</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__quote-mark">"</div>
+          <div class="testimonial-card__headline">Completed on time and to a high standard</div>
+          <p class="testimonial-card__body">They did an excellent job on our roofing project, completing it on time and to a high standard. The team was polite, understanding, and respectful, especially towards my mother, which meant a lot to us. Their professionalism and attention to detail are truly commendable.</p>
+          <div class="testimonial-card__footer">
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">TB</div>
+              <div>
+                <div class="testimonial-card__name">Taysha Boreland</div>
+                <div class="testimonial-card__job">New Roof</div>
+              </div>
+            </div>
+            <div class="testimonial-card__rating">
+              <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div class="testimonial-card__platform">Google</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__quote-mark">"</div>
+          <div class="testimonial-card__headline">Speed and expertise</div>
+          <p class="testimonial-card__body">All rubbish was quickly removed and the premises were left clean and tidy. The team was very punctual and polite and showed excellent workmanship. I have no hesitation in recommending Hammerslate Roofing for their speed and expertise.</p>
+          <div class="testimonial-card__footer">
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">LK</div>
+              <div>
+                <div class="testimonial-card__name">Linda Kitching</div>
+                <div class="testimonial-card__job">Roof Repair</div>
+              </div>
+            </div>
+            <div class="testimonial-card__rating">
+              <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div class="testimonial-card__platform">Checkatrade</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__quote-mark">"</div>
+          <div class="testimonial-card__headline">Top-notch finish on our slate re-roof</div>
+          <p class="testimonial-card__body">We decided to go for a full re-roof using slate, and the team at Hammerslate were brilliant from start to finish. They arrived early every morning, kept the driveway tidy, and the finish is top-notch. It's rare to find tradesmen who actually take pride in the neatness of the leadwork these days.</p>
+          <div class="testimonial-card__footer">
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">V</div>
+              <div>
+                <div class="testimonial-card__name">Verified Customer</div>
+                <div class="testimonial-card__job">Full Re-Roof (Slate)</div>
+              </div>
+            </div>
+            <div class="testimonial-card__rating">
+              <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div class="testimonial-card__platform">Google</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mid-cta">
+        <a href="#quote-form" class="btn btn--action">Get Your Free Roofing Quote</a>
+        <span class="mid-cta__phone">Or call us now: <a href="tel:02046347883">020 4634 7883</a></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section section--off-white">
+    <div class="container">
+      <div class="section__header">
+        <h2>Why North London Trusts Hammerslate</h2>
+      </div>
+      <div class="usp-grid">
+        <div class="usp-item">
+          <div class="usp-item__icon">
+            <svg viewBox="0 0 24 24"><path d="M14 6l-3.5 14M6.5 10H20M4 14h13.5"/></svg>
+          </div>
+          <div>
+            <h3>30 Years of Experience</h3>
+            <p>Daniel has been working on roofs across London for three decades. Every project benefits from that hard-won knowledge.</p>
+          </div>
+        </div>
+        <div class="usp-item">
+          <div class="usp-item__icon">
+            <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+          </div>
+          <div>
+            <h3>Fixed Prices, No Surprises</h3>
+            <p>You get a detailed written quote before any work starts. The price we quote is the price you pay.</p>
+          </div>
+        </div>
+        <div class="usp-item">
+          <div class="usp-item__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h3>15-Year Warranty</h3>
+            <p>Every job is backed by our written warranty. If anything goes wrong, we come back and fix it at no cost to you.</p>
+          </div>
+        </div>
+        <div class="usp-item">
+          <div class="usp-item__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <h3>24/7 Emergency Response</h3>
+            <p>Roof leaking in the middle of the night? Call us. We're available round the clock for urgent repairs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 3-STEP PROCESS ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>How It Works</h2>
+        <p>From first call to finished roof in three simple steps</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step__number">1</div>
+          <h3>Get in Touch</h3>
+          <p>Call us or fill in the form. We'll have a quick chat about what you need and book a free inspection at a time that works for you.</p>
+        </div>
+        <div class="step">
+          <div class="step__number">2</div>
+          <h3>Free Inspection and Quote</h3>
+          <p>Daniel will visit your property, assess the roof, and give you an honest, written quote with no hidden costs.</p>
+        </div>
+        <div class="step">
+          <div class="step__number">3</div>
+          <h3>Work Completed to Standard</h3>
+          <p>We carry out the work on schedule, leave the site clean, and back everything with our 15-year warranty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section section--off-white">
+    <div class="container">
+      <div class="section__header">
+        <h2>Common Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item active">
+          <button class="faq-item__question" onclick="this.parentElement.classList.toggle('active')">Do you charge for quotes or inspections?</button>
+          <div class="faq-item__answer">No. We provide free, no-obligation quotes for all roofing work. Daniel will visit your property, assess the job, and give you a detailed written estimate at no cost. There are no call-out fees.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" onclick="this.parentElement.classList.toggle('active')">How do I know if my roof needs repairing or replacing?</button>
+          <div class="faq-item__answer">Common signs include visible leaks or damp patches on ceilings, missing or cracked tiles, sagging areas, or moss and vegetation growth. If your roof is over 25 years old and showing these signs, a full replacement may be more cost-effective than ongoing repairs. We'll give you an honest assessment and recommend the best option for your situation.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" onclick="this.parentElement.classList.toggle('active')">What does your 15-year warranty cover?</button>
+          <div class="faq-item__answer">Our warranty covers all workmanship for 15 years from completion. If anything we've installed or repaired develops a fault, we'll come back and put it right at no cost to you. Materials carry the manufacturer's own warranty on top of this.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" onclick="this.parentElement.classList.toggle('active')">How long does a new roof take?</button>
+          <div class="faq-item__answer">A standard semi-detached house typically takes between 5 and 10 working days, depending on weather, the complexity of the roof, and the materials chosen. We'll give you a clear timeline before work starts.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" onclick="this.parentElement.classList.toggle('active')">Do you handle emergency roof repairs?</button>
+          <div class="faq-item__answer">Yes, we're available 24/7 for emergencies. If you've got an urgent leak or storm damage, call us on 020 4634 7883 and we'll get someone to you as quickly as possible.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" onclick="this.parentElement.classList.toggle('active')">What areas do you cover?</button>
+          <div class="faq-item__answer">We're based in North London and cover Enfield, Walthamstow, and surrounding areas. If you're unsure whether we cover your area, give us a call and we'll let you know.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL CTA ========== -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Ready to Fix Your Roof?</h2>
+      <p class="final-cta__subtitle">Get a free, no-obligation quote from a team that's been trusted across North London for 30 years.</p>
+      <div class="final-cta__phone"><a href="tel:02046347883">020 4634 7883</a></div>
+      <div class="final-cta__row">
+        <a href="tel:02046347883" class="btn btn--action">Call Us Now</a>
+        <a href="#quote-form" class="btn btn--outline">Get a Free Quote</a>
+      </div>
+      <p class="final-cta__reassurance">No obligation. No hidden fees. Just honest roofing.</p>
+    </div>
+  </section>
+
+  <!-- ========== USP BAR (like Hodgson/Aventus bottom strip) ========== -->
+  <div class="usp-bar">
+    <div class="usp-bar__inner container">
+      <div class="usp-bar__item">
+        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>Fully Trained Roofers</span>
+      </div>
+      <div class="usp-bar__item">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>100% Service Guarantee</span>
+      </div>
+      <div class="usp-bar__item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span>Same Day Quotations</span>
+      </div>
+      <div class="usp-bar__item">
+        <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+        <span>No Hidden Charges</span>
+      </div>
+      <div class="usp-bar__item">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>We Clean Up After The Job</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand">Hammerslate Roofing</div>
+          <p>Family-run roofing experts serving North London. Fully insured, fully guaranteed, and always here to help.</p>
+          <p style="margin-top:12px;"><a href="tel:02046347883" style="color:var(--white);">020 4634 7883</a></p>
+          <p>195-197 Wood Street, London E17 3NU</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li>New Roofs / Re-Roofs</li>
+            <li>Roof Repairs</li>
+            <li>Flat Roofs</li>
+            <li>Guttering &amp; Fascias</li>
+            <li>Chimney Repairs</li>
+            <li>Emergency Repairs</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Areas We Cover</h4>
+          <ul>
+            <li>Enfield</li>
+            <li>Walthamstow</li>
+            <li>North London</li>
+            <li>Surrounding areas</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Hammerslate Roofing. All rights reserved.</span>
+        <span><a href="#">Privacy Policy</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== MOBILE STICKY BAR ========== -->
+  <div class="mobile-bar">
+    <a href="tel:02046347883" class="mobile-bar__call">Call Now</a>
+    <a href="#quote-form" class="mobile-bar__quote">Get a Free Quote</a>
+  </div>
+
+</body>
+</html>

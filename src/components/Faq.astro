@@ -1,0 +1,63 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items?: FaqItem[];
+}
+
+const {
+  items = [
+    {
+      question: 'Do you charge for quotes or inspections?',
+      answer: 'No. We provide free, no-obligation quotes for all roofing work. Daniel will visit your property, assess the job, and give you a detailed written estimate at no cost. There are no call-out fees.',
+    },
+    {
+      question: 'How do I know if my roof needs repairing or replacing?',
+      answer: "Common signs include visible leaks or damp patches on ceilings, missing or cracked tiles, sagging areas, or moss and vegetation growth. If your roof is over 25 years old and showing these signs, a full replacement may be more cost-effective than ongoing repairs. We'll give you an honest assessment and recommend the best option for your situation.",
+    },
+    {
+      question: 'What does your 15-year warranty cover?',
+      answer: "Our warranty covers all workmanship for 15 years from completion. If anything we've installed or repaired develops a fault, we'll come back and put it right at no cost to you. Materials carry the manufacturer's own warranty on top of this.",
+    },
+    {
+      question: 'How long does a new roof take?',
+      answer: "A standard semi-detached house typically takes between 5 and 10 working days, depending on weather, the complexity of the roof, and the materials chosen. We'll give you a clear timeline before work starts.",
+    },
+    {
+      question: 'Do you handle emergency roof repairs?',
+      answer: "Yes, we're available 24/7 for emergencies. If you've got an urgent leak or storm damage, call us on 020 4634 7883 and we'll get someone to you as quickly as possible.",
+    },
+    {
+      question: 'What areas do you cover?',
+      answer: "We're based in Enfield and cover Walthamstow and surrounding North London areas. If you're unsure whether we cover your area, give us a call and we'll let you know.",
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="section section--off-white">
+  <div class="container">
+    <div class="section__header">
+      <h2>Common Questions</h2>
+    </div>
+    <div class="faq-list">
+      {items.map((item, i) => (
+        <div class={`faq-item${i === 0 ? ' active' : ''}`}>
+          <button class="faq-item__question">{item.question}</button>
+          <div class="faq-item__answer">{item.answer}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-item__question').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      btn.parentElement!.classList.toggle('active');
+    });
+  });
+</script>

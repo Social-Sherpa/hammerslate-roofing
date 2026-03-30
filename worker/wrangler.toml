@@ -1,0 +1,6 @@
+name = "lead-form-handler"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+[vars]
+ALLOWED_ORIGINS = "https://get.hammerslateroofing.co.uk,https://hammerslate-staging.pages.dev,http://localhost:4322"

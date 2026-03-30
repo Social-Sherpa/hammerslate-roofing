@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import googleLogo from '../assets/logos/google-colorful-logo.png';
+import facebookLogo from '../assets/logos/Facebook.png';
+import checkatradeLogo from '../assets/logos/checkatrade-approved-roofer.png';
+
+const platforms = [
+  { logo: googleLogo, alt: 'Google Reviews logo', rating: '4.7', count: '28', slug: 'google' },
+  { logo: facebookLogo, alt: 'Facebook Reviews logo', rating: '5.0', count: '16', slug: 'facebook' },
+  { logo: checkatradeLogo, alt: 'Checkatrade logo', rating: '10/10', count: '40+', slug: 'checkatrade' },
+];
+---
+
+<div class="platforms">
+  <div class="platforms__inner container">
+    {platforms.map((p) => (
+      <div class={`platform platform--${p.slug}`}>
+        <Image src={p.logo} alt={p.alt} width={400} quality={100} loading="lazy" class="platform__logo-img" />
+        <div class="platform__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="platform__meta">Rated <strong>{p.rating}</strong> from <strong>{p.count}</strong> reviews</div>
+      </div>
+    ))}
+  </div>
+</div>
