@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import heroImg from '../assets/images/hero-roofer-inspecting-slate-roof-north-london.webp';
+import heroImg from '../assets/images/roof-repair-replacing-broken-tiles.webp';
 import QuoteForm from './QuoteForm.astro';
 
 interface Props {
@@ -30,7 +30,7 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
 <section class="hero">
   <Image
     src={heroImg}
-    alt="Professional roofer inspecting slate tiles on an Enfield terraced house"
+    alt="Roof repair replacing broken tiles on a North London house"
     class="hero__bg"
     widths={[600, 900, 1200]}
     loading="eager"
