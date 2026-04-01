@@ -3,4 +3,8 @@ main = "src/index.ts"
 compatibility_date = "2024-01-01"
 
 [vars]
-ALLOWED_ORIGINS = "https://get.hammerslateroofing.co.uk,https://hammerslate-staging.pages.dev,http://localhost:4322"
+ALLOWED_ORIGINS = "https://get.hammerslateroofing.co.uk,https://hammerslate-staging.pages.dev,http://localhost:4321,http://localhost:4322"
+GOOGLE_PLACE_ID = "ChIJA6tXkDYddkgRyvrtocirFiA"
+
+# GOOGLE_PLACES_API_KEY must be set as a secret:
+# npx wrangler secret put GOOGLE_PLACES_API_KEY --cwd worker

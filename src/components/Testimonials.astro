@@ -14,7 +14,9 @@ interface Props {
 const { phone = '020 4634 7883' } = Astro.props;
 const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
 
-const testimonials = [
+const workerUrl = import.meta.env.PUBLIC_FORM_WORKER_URL || 'https://lead-form-handler.chris-10f.workers.dev';
+
+const fallbackTestimonials = [
   {
     headline: 'Honest advice and a fair price',
     body: 'Had a nightmare with a persistent leak every time it rained heavy. Hammerslate came out, found the cracked tiles that two other builders had missed, and sorted it the same afternoon. No hard sell, just honest advice and a fair price. Really relieved to have it watertight again.',
@@ -58,14 +60,14 @@ const testimonials = [
 ];
 ---
 
-<section class="section">
+<section class="section" data-reviews-worker={workerUrl}>
   <div class="container">
     <div class="section__header">
       <h2>What Our Customers Say</h2>
       <p>Real reviews from real homeowners across Enfield</p>
     </div>
     <div class="testimonials-grid">
-      {testimonials.map((t, i) => (
+      {fallbackTestimonials.map((t, i) => (
         <div class="testimonial-card" data-slide={i}>
           <div class="testimonial-card__quote-mark">&ldquo;</div>
           <div class="testimonial-card__headline">{t.headline}</div>
@@ -87,7 +89,7 @@ const testimonials = [
       ))}
     </div>
     <div class="testimonials-dots">
-      {testimonials.map((_, i) => (
+      {fallbackTestimonials.map((_, i) => (
         <button class={`testimonials-dot ${i === 0 ? 'active' : ''}`} data-dot={i} aria-label={`Show review ${i + 1}`} />
       ))}
     </div>
@@ -99,6 +101,71 @@ const testimonials = [
 </section>
 
 <script>
+  function initTestimonials() {
+    const section = document.querySelector('[data-reviews-worker]') as HTMLElement;
+    if (!section) return;
+
+    const workerUrl = section.dataset.reviewsWorker;
+    const grid = section.querySelector('.testimonials-grid') as HTMLElement;
+    const dotsContainer = section.querySelector('.testimonials-dots') as HTMLElement;
+
+    // Fetch live Google reviews
+    if (workerUrl) {
+      fetch(`${workerUrl}/reviews`)
+        .then(res => res.json())
+        .then((data: any) => {
+          if (!data.success || !data.reviews?.length) return;
+
+          const googleLogoUrl = section.querySelector('.testimonial-card__platform-logo--google')?.getAttribute('src') || '';
+
+          const cards = data.reviews.map((review: any, i: number) => {
+            const stars = '&#9733;'.repeat(review.rating) + '&#9734;'.repeat(5 - review.rating);
+            const text = review.text.length > 280 ? review.text.slice(0, 280).trimEnd() + '...' : review.text;
+            // Extract a short headline from the first sentence
+            const firstSentence = review.text.split(/[.!?]/)[0].trim();
+            const headline = firstSentence.length > 50 ? firstSentence.slice(0, 50).trimEnd() + '...' : firstSentence;
+
+            return `
+              <div class="testimonial-card" data-slide="${i}">
+                <div class="testimonial-card__quote-mark">&ldquo;</div>
+                <div class="testimonial-card__headline">${headline}</div>
+                <p class="testimonial-card__body">${text}</p>
+                <div class="testimonial-card__footer">
+                  <div class="testimonial-card__author">
+                    <img src="${review.photoUrl}" alt="${review.author}" width="40" height="40" class="testimonial-card__avatar" loading="lazy" referrerpolicy="no-referrer" />
+                    <div>
+                      <div class="testimonial-card__name">${review.author}</div>
+                      <div class="testimonial-card__job">${review.relativeTime}</div>
+                    </div>
+                  </div>
+                  <div class="testimonial-card__rating">
+                    <div class="testimonial-card__stars">${stars}</div>
+                    <img src="${googleLogoUrl}" alt="Google Reviews" width="200" class="testimonial-card__platform-logo testimonial-card__platform-logo--google" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+
+          grid.innerHTML = cards.join('');
+
+          // Update dots
+          const dotButtons = data.reviews.map((_: any, i: number) =>
+            `<button class="testimonials-dot ${i === 0 ? 'active' : ''}" data-dot="${i}" aria-label="Show review ${i + 1}"></button>`
+          );
+          dotsContainer.innerHTML = dotButtons.join('');
+
+          // Re-init slider after replacing content
+          initSlider();
+        })
+        .catch(() => {
+          // Silently fall back to static reviews
+        });
+    }
+
+    initSlider();
+  }
+
   function initSlider() {
     const grid = document.querySelector('.testimonials-grid');
     const dots = document.querySelectorAll('.testimonials-dot');
@@ -141,5 +208,5 @@ const testimonials = [
     startAuto();
   }
 
-  initSlider();
+  initTestimonials();
 </script>
