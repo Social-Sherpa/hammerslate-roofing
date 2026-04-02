@@ -1,0 +1,69 @@
+---
+import { Image } from 'astro:assets';
+import heroImg from '../assets/images/hero-roofer-inspecting-slate-roof-north-london.webp';
+import heroMobileImg from '../assets/images/brand-images/brand-van-2.jpeg';
+import QuoteForm from './QuoteForm.astro';
+
+interface Props {
+  headline: string;
+  subtitle: string;
+  webhookUrl: string;
+  phone?: string;
+  bullets?: string[];
+}
+
+const {
+  headline,
+  subtitle,
+  webhookUrl,
+  phone = '020 4634 7883',
+  bullets = [
+    'Free, no-obligation written quotes',
+    'Same-day quotes available',
+    'All work backed by a 15-year warranty',
+    '24/7 emergency call-outs',
+  ],
+} = Astro.props;
+
+const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
+---
+
+<section class="hero">
+  <Image
+    src={heroImg}
+    alt="Professional roofer inspecting slate tiles on an Enfield terraced house"
+    class="hero__bg"
+    widths={[600, 900, 1200]}
+    loading="eager"
+  />
+  <div class="hero__mobile-image">
+    <Image
+      src={heroMobileImg}
+      alt="Hammerslate Roofing branded van on location in North London"
+      class="hero__mobile-img"
+      widths={[600, 900]}
+      loading="eager"
+    />
+  </div>
+  <div class="hero__inner">
+    <div class="hero__content">
+      <div class="hero__rating">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span>Rated 5/5 by customers</span>
+      </div>
+      <h1 class="hero__title">{headline}</h1>
+      <p class="hero__subtitle">{subtitle}</p>
+      <ul class="hero__bullets">
+        {bullets.map((bullet) => (
+          <li>{bullet}</li>
+        ))}
+      </ul>
+      <div class="hero__cta-row">
+        <a href={phoneHref} class="btn btn--action">Call {phone}</a>
+        <a href="#quote-form" class="btn btn--outline">Get a Free Quote</a>
+      </div>
+    </div>
+
+    <QuoteForm webhookUrl={webhookUrl} source="Enfield Landing Page" phone={phone} />
+  </div>
+</section>

@@ -1,14 +1,24 @@
 ---
 import { Image } from 'astro:assets';
 import heroImg from '../assets/images/hero-roofer-inspecting-slate-roof-north-london.webp';
+import heroMobileImg from '../assets/images/brand-images/brand-van-2.jpeg';
+import googleGLogo from '../assets/logos/google-g-logo-colorful.jpg';
+import avatar1 from '../assets/images/customer-avatar-1.webp';
 import QuoteForm from './QuoteForm.astro';
+
+interface Testimonial {
+  body: string;
+  name: string;
+  date: string;
+  service: string;
+}
 
 interface Props {
   headline: string;
   subtitle: string;
   webhookUrl: string;
   phone?: string;
-  bullets?: string[];
+  testimonial?: Testimonial;
 }
 
 const {
@@ -16,12 +26,12 @@ const {
   subtitle,
   webhookUrl,
   phone = '020 4634 7883',
-  bullets = [
-    'Free, no-obligation written quotes',
-    'Same-day quotes available',
-    'All work backed by a 15-year warranty',
-    '24/7 emergency call-outs',
-  ],
+  testimonial = {
+    body: 'Had a nightmare with a persistent leak every time it rained heavy. Hammerslate came out, found the cracked tiles that two other builders had missed, and sorted it the same afternoon. No hard sell, just honest advice and a fair price.',
+    name: 'Location: EN2',
+    date: 'Mar 2025',
+    service: 'Roof Repair',
+  },
 } = Astro.props;
 
 const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
@@ -37,32 +47,252 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
   />
   <div class="hero__mobile-image">
     <Image
-      src={heroImg}
-      alt="Professional roofer inspecting slate tiles on an Enfield terraced house"
+      src={heroMobileImg}
+      alt="Hammerslate Roofing branded van on location in North London"
       class="hero__mobile-img"
       widths={[600, 900]}
       loading="eager"
     />
   </div>
-  <div class="hero__inner">
+  <div class="hero__grid">
     <div class="hero__content">
       <div class="hero__rating">
         <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-        <span>Rated 5/5 by customers</span>
+        <span>Rated "Excellent" (97 Reviews)</span>
       </div>
       <h1 class="hero__title">{headline}</h1>
       <p class="hero__subtitle">{subtitle}</p>
-      <ul class="hero__bullets">
-        {bullets.map((bullet) => (
-          <li>{bullet}</li>
-        ))}
-      </ul>
-      <div class="hero__cta-row">
-        <a href={phoneHref} class="btn btn--action">Call {phone}</a>
-        <a href="#quote-form" class="btn btn--outline">Get a Free Quote</a>
-      </div>
     </div>
 
-    <QuoteForm webhookUrl={webhookUrl} source="Enfield Landing Page" phone={phone} />
+    <div class="hero__form-col">
+      <QuoteForm webhookUrl={webhookUrl} source="Enfield Landing Page" phone={phone} />
+    </div>
+
+    <div class="hero-testimonial">
+      <p class="hero-testimonial__body">{testimonial.body}</p>
+      <hr class="hero-testimonial__divider" />
+      <div class="hero-testimonial__footer">
+        <div class="hero-testimonial__info">
+          <div class="hero-testimonial__meta">
+            <div class="hero-testimonial__top-row">
+              <span class="hero-testimonial__name">{testimonial.name}</span>
+              <span class="hero-testimonial__date">({testimonial.date})</span>
+            </div>
+            <span class="hero-testimonial__service">{testimonial.service}</span>
+          </div>
+          <div class="hero-testimonial__avatar-wrap">
+            <Image
+              src={avatar1}
+              alt="Customer photo"
+              class="hero-testimonial__avatar"
+              widths={[48, 96]}
+            />
+            <Image
+              src={googleGLogo}
+              alt="Google"
+              class="hero-testimonial__g-badge"
+              widths={[18, 36]}
+            />
+          </div>
+        </div>
+        <div class="hero-testimonial__badges">
+          <span class="hero-testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="hero-testimonial__verified">Verified</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  /* Grid layout: content + card on left column, form on right */
+  .hero__grid {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    grid-template-rows: auto auto;
+    gap: 56px 56px;
+    align-items: start;
+    padding: 72px 24px 80px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .hero__grid > .hero__content {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .hero__form-col {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+
+  .hero-testimonial {
+    grid-column: 1;
+    grid-row: 2;
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px 20px;
+    max-width: 520px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    margin-top: -24px;
+  }
+
+  .hero-testimonial__body {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .hero-testimonial__divider {
+    border: none;
+    border-top: 1px solid #e5e5e3;
+    margin: 18px 0 16px;
+  }
+
+  .hero-testimonial__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .hero-testimonial__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .hero-testimonial__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .hero-testimonial__top-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .hero-testimonial__name {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 0.9rem;
+  }
+
+  .hero-testimonial__date {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+  }
+
+  .hero-testimonial__service {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+  }
+
+  .hero-testimonial__badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-testimonial__stars {
+    color: var(--gold);
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+  }
+
+  .hero-testimonial__verified {
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .hero-testimonial__avatar-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+  }
+
+  .hero-testimonial__avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-testimonial__g-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    display: block;
+  }
+
+  /* Tablet */
+  @media (max-width: 960px) {
+    .hero__grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+      padding: 48px 16px 56px;
+    }
+
+    .hero__grid > .hero__content {
+      text-align: center;
+    }
+
+    .hero__form-col {
+      grid-column: 1;
+      grid-row: 2;
+      max-width: 440px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-testimonial {
+      grid-column: 1;
+      grid-row: 3;
+      margin: 0 auto;
+      max-width: 440px;
+      width: 100%;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .hero__grid {
+      padding: 20px 16px 32px;
+      gap: 16px;
+      overflow-x: hidden;
+    }
+
+    .hero-testimonial {
+      margin-top: 0;
+      box-sizing: border-box;
+      max-width: 100%;
+      padding-bottom: 10px;
+    }
+
+    .hero-testimonial__footer {
+      gap: 0;
+    }
+
+    .hero__form-col {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+  }
+</style>

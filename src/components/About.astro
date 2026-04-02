@@ -1,24 +1,50 @@
 ---
 import { Image } from 'astro:assets';
-import teamImg from '../assets/images/roofing-team-north-london-street.webp';
+import img1 from '../assets/images/brand-images/brand-house.jpeg';
+import img2 from '../assets/images/client/black-slate-roof-tiles-brick-house.jpg';
+import img3 from '../assets/images/client/slate-roof-installation-with-chimney.jpg';
+import img4 from '../assets/images/client/red-brick-chimney-on-roof.jpg';
+import img5 from '../assets/images/client/flat-roof-rubber-membrane-installation.jpg';
+import img6 from '../assets/images/client/black-guttering-downpipe-system.jpg';
+import img7 from '../assets/images/client/new-roof-installation-construction-project.jpg';
+import img8 from '../assets/images/client/brick-house-modern-dark-roof.jpg';
 
 interface Props {
   phone?: string;
 }
 
 const { phone = '020 4634 7883' } = Astro.props;
+
+const gallery = [
+  { src: img1, alt: 'Completed roofing project on a residential property in North London' },
+  { src: img2, alt: 'Black slate roof tiles fitted on a brick house' },
+  { src: img3, alt: 'Slate roof installation with chimney work' },
+  { src: img4, alt: 'Red brick chimney repair on a residential roof' },
+  { src: img5, alt: 'Flat roof rubber membrane installation' },
+  { src: img6, alt: 'Black guttering and downpipe system on a brick house' },
+  { src: img7, alt: 'New roof installation construction project in progress' },
+  { src: img8, alt: 'Modern dark roof on a brick house' },
+];
 ---
 
 <section class="section section--off-white">
   <div class="container">
     <div class="about-split">
-      <div class="about-split__image">
-        <Image
-          src={teamImg}
-          alt="Hammerslate Roofing team on a residential street in Enfield"
-          widths={[400, 600]}
-          loading="lazy"
-        />
+      <div class="about-split__image about-split__slider">
+        <div class="about-slider__track">
+          {gallery.map((img) => (
+            <div class="about-slider__slide">
+              <Image
+                src={img.src}
+                alt={img.alt}
+                widths={[400, 600]}
+                loading="lazy"
+                class="about-slider__img"
+              />
+            </div>
+          ))}
+        </div>
+        <div class="about-slider__dots"></div>
       </div>
       <div class="about-split__content">
         <h2>Serving Enfield for Over 30 Years</h2>
@@ -36,3 +62,36 @@ const { phone = '020 4634 7883' } = Astro.props;
     </div>
   </div>
 </section>
+
+<script>
+  const slider = document.querySelector('.about-split__slider');
+  if (slider) {
+    const slides = slider.querySelectorAll('.about-slider__slide');
+    const dotsContainer = slider.querySelector('.about-slider__dots');
+    let current = 0;
+
+    slides[0]?.classList.add('active');
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = `about-slider__dot${i === 0 ? ' active' : ''}`;
+      dot.setAttribute('aria-label', `Show image ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer?.appendChild(dot);
+    });
+
+    const dots = dotsContainer?.querySelectorAll('.about-slider__dot');
+
+    function goTo(index: number) {
+      slides[current]?.classList.remove('active');
+      dots?.[current]?.classList.remove('active');
+      current = index;
+      slides[current]?.classList.add('active');
+      dots?.[current]?.classList.add('active');
+    }
+
+    setInterval(() => {
+      goTo((current + 1) % slides.length);
+    }, 4000);
+  }
+</script>
