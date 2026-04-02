@@ -46,8 +46,13 @@ const {
     <div class="faq-list">
       {items.map((item, i) => (
         <div class={`faq-item${i === 0 ? ' active' : ''}`}>
-          <button class="faq-item__question">{item.question}</button>
-          <div class="faq-item__answer">{item.answer}</div>
+          <button class="faq-item__question">
+            {item.question}
+            <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-item__answer-wrapper">
+            <div class="faq-item__answer">{item.answer}</div>
+          </div>
         </div>
       ))}
     </div>
