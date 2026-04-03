@@ -796,9 +796,10 @@ button[type="submit"]:disabled {
   right: 0;
   color: var(--white);
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: 1rem;
   text-align: center;
-  padding: 12px 16px;
+  padding: 8px 12px;
+  white-space: nowrap;
   background: rgba(28,33,48,0.92);
 }
 
@@ -1567,6 +1568,11 @@ button[type="submit"]:disabled {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .service-card__label {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+
   /* About */
   .about-split {
     grid-template-columns: 1fr;
@@ -1784,10 +1790,10 @@ button[type="submit"]:disabled {
   }
 
   .service-card__label {
-    font-size: 0.78rem;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
+    font-size: 0.58rem;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
   }
 
   /* Section padding */
