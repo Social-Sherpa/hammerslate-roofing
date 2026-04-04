@@ -29,11 +29,12 @@
    ============================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; font-size: 18px; }
 
 body {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 16px;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
   line-height: 1.6;
   color: var(--text);
   background: var(--white);
@@ -52,8 +53,8 @@ a { color: inherit; text-decoration: none; }
    TYPOGRAPHY
    ============================================ */
 h1, h2, h3 {
-  font-family: 'DM Serif Display', Georgia, serif;
-  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   line-height: 1.15;
   color: var(--text);
 }
@@ -421,7 +422,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
 }
 
 .form-card__title {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: 1.5rem;
   color: var(--text);
   margin-bottom: 4px;
@@ -612,7 +613,7 @@ button[type="submit"]:disabled {
 .platforms {
   background: var(--white);
   border-bottom: 1px solid var(--border);
-  padding: 40px 0;
+  padding: 0px 0 32px 0 ;
 }
 
 .platforms__inner {
@@ -724,7 +725,7 @@ button[type="submit"]:disabled {
    SECTIONS
    ============================================ */
 .section {
-  padding: 80px 0;
+  padding: 70px 0;
 }
 
 .section--grey {
@@ -807,23 +808,113 @@ button[type="submit"]:disabled {
    MID-PAGE CTA
    ============================================ */
 .mid-cta {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  #overflow: hidden;
+  position: relative;
+}
+
+.mid-cta__content {
   text-align: center;
-  padding: 32px 0 0;
+  padding: 18px 40px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.mid-cta__van {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.mid-cta__van img {
+  display: block;
+  height: 220px;
+  width: auto;
+  object-fit: contain;
+}
+
+.mid-cta__content .btn {
+  white-space: nowrap;
 }
 
 .mid-cta__phone {
-  display: block;
-  margin-top: 14px;
-  font-size: 0.95rem;
+  margin-top: 16px;
+  font-size: 1rem;
   color: var(--text-secondary);
 }
 
-.mid-cta__phone a {
+.mid-cta__number {
+  font-size: 1.8rem;
   font-weight: 700;
+}
+
+.mid-cta__number a {
   color: var(--text);
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+}
+
+
+/* ============================================
+   SERVICE DETAIL (New Roofs / Roof Repairs)
+   ============================================ */
+.service-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.service-detail__left h2 {
+  margin-bottom: 16px;
+}
+
+.service-detail__left p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.service-detail__image {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
+.service-detail__right {
+  padding-top: 8px;
+}
+
+.service-detail__checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.service-detail__checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.service-detail__checklist li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.service-detail__checklist li strong {
+  color: var(--text);
+}
+
+@media (max-width: 960px) {
+  .service-detail {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
 }
 
 /* ============================================
@@ -907,6 +998,36 @@ button[type="submit"]:disabled {
   background: white;
 }
 
+.about-slider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 2;
+}
+
+.about-slider__arrow:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.about-slider__arrow--prev {
+  left: 12px;
+}
+
+.about-slider__arrow--next {
+  right: 12px;
+}
+
 .about-split__content h2 {
   margin-bottom: 20px;
 }
@@ -980,7 +1101,7 @@ button[type="submit"]:disabled {
 }
 
 .testimonial-card__headline {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 1.1rem;
   margin-bottom: 14px;
@@ -1129,7 +1250,7 @@ button[type="submit"]:disabled {
 }
 
 .usp-item h3 {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 1rem;
   margin-bottom: 6px;
@@ -1218,7 +1339,7 @@ button[type="submit"]:disabled {
   border-radius: 50%;
   background: var(--brand);
   color: var(--white);
-  font-family: 'DM Serif Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   transition: transform 0.3s ease;
   font-size: 1.4rem;
   display: flex;
@@ -1228,7 +1349,7 @@ button[type="submit"]:disabled {
 }
 
 .step h3 {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -1264,7 +1385,7 @@ button[type="submit"]:disabled {
   align-items: center;
   gap: 16px;
   padding: 22px 0;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--text);
@@ -1313,13 +1434,43 @@ button[type="submit"]:disabled {
   padding-bottom: 22px;
 }
 
+.faq-item__answer a {
+  color: var(--brand);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.faq-item__answer a:hover {
+  text-decoration: underline;
+}
+
 /* ============================================
    FINAL CTA
    ============================================ */
 .final-cta {
-  background: var(--brand);
+  position: relative;
   padding: 80px 0;
   text-align: center;
+  overflow: hidden;
+}
+
+.final-cta__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.final-cta__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 33, 48, 0.85);
+}
+
+.final-cta__content {
+  position: relative;
+  z-index: 1;
 }
 
 .final-cta h2 {
@@ -1328,7 +1479,7 @@ button[type="submit"]:disabled {
 }
 
 .final-cta__subtitle {
-  color: rgba(255,255,255,0.75);
+  color: var(--white);
   font-size: 1.05rem;
   margin-bottom: 28px;
   max-width: 540px;
@@ -1357,7 +1508,7 @@ button[type="submit"]:disabled {
 .final-cta__reassurance {
   margin-top: 20px;
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.8);
 }
 
 /* ============================================
@@ -1424,7 +1575,7 @@ button[type="submit"]:disabled {
 }
 
 .footer__brand {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: 1.2rem;
   color: var(--white);
   margin-bottom: 12px;
@@ -1435,7 +1586,7 @@ button[type="submit"]:disabled {
 }
 
 .footer h4 {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--white);
@@ -1455,8 +1606,17 @@ button[type="submit"]:disabled {
   color: var(--white);
 }
 
+.footer__map {
+  margin-bottom: 40px;
+}
+
+.footer__map iframe {
+  width: 100%;
+  display: block;
+}
+
 .footer__bottom {
-  margin-top: 40px;
+  margin-top: 24px;
   padding-top: 24px;
   border-top: 1px solid rgba(255,255,255,0.08);
   display: flex;
@@ -1782,6 +1942,29 @@ button[type="submit"]:disabled {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 4px;
+  }
+
+  .mid-cta {
+    flex-direction: column;
+  }
+
+  .mid-cta__content {
+    padding: 32px 24px 24px;
+  }
+
+  .mid-cta__van {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .mid-cta__van img {
+    height: auto;
+    width: 75%;
+    max-width: 280px;
+    margin: 0 auto;
   }
 
   .service-card {

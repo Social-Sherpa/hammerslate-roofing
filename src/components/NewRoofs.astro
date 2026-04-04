@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import roofImg from '../assets/images/client/brick-house-red-tile-roof-aerial.jpg';
+
+const materials = [
+  { title: 'Slate Roofs:', desc: 'Popular for their durability and classic look. Ideal for period properties and can last over 100 years.' },
+  { title: 'Concrete Tiles:', desc: 'Affordable and available in a range of styles; a sturdy option for most UK homes.' },
+  { title: 'Clay Tiles:', desc: 'Offer a traditional appearance, especially for historic or rural homes, with good durability.' },
+  { title: 'Metal Roofs (Steel, Zinc):', desc: 'Increasingly popular due to their lightweight nature and longevity.' },
+  { title: 'EPDM Rubber and Fibreglass Flat Roofs:', desc: 'Ideal for extensions and modern designs.' },
+];
+---
+
+<section class="section">
+  <div class="container">
+    <div class="service-detail">
+      <div class="service-detail__left">
+        <h2>New Roofs &amp; Roof Replacement</h2>
+        <p><strong>Don't risk it:</strong> A new roof is one of the most important investments you can make for your home. Poor installation can lead to costly repairs, water damage, and even safety risks. Get it done right the first time with Hammerslate Roofing.</p>
+        <Image src={roofImg} alt="New roof installation on a residential property in North London" widths={[400, 600]} loading="lazy" class="service-detail__image" />
+      </div>
+      <div class="service-detail__right">
+        <ul class="service-detail__checklist">
+          {materials.map((item) => (
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#22c55e" stroke="none"><circle cx="12" cy="12" r="12"/><polyline points="7 12 10.5 15.5 17 9" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div>
+                <strong>{item.title}</strong> {item.desc}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import repairImg from '../assets/images/client/residential-roof-repair-project.jpg';
+
+const services = [
+  { title: 'Emergency Roof Repairs:', desc: 'Available 24/7 for those unexpected leaks and damages.' },
+  { title: 'Roof Leak Repair:', desc: 'Fast, efficient fixes to stop water from entering your home.' },
+  { title: 'Flat Roof Repair:', desc: 'Specialising in felt roof repairs and other flat roof systems.' },
+  { title: 'Gutter Repairs:', desc: 'Repairing or replacing rain gutters to ensure proper water drainage.' },
+  { title: 'Soffit & Fascia Repair:', desc: 'Fixing soffits and fascias to prevent structural damage and maintain curb appeal.' },
+];
+---
+
+<section class="section">
+  <div class="container">
+    <div class="service-detail">
+      <div class="service-detail__left">
+        <h2>Looking for affordable roof repairs?</h2>
+        <p>We provide fast, reliable roof repairs to fix problems before they get worse. From emergency leaks to flat roof repairs, Hammerslate Roofing gets the job done right, no delays, no hidden costs. Avoid costly damage by acting now, trust us to protect your home!</p>
+        <Image src={repairImg} alt="Roof repair project on a residential property" widths={[400, 600]} loading="lazy" class="service-detail__image" />
+      </div>
+      <div class="service-detail__right">
+        <ul class="service-detail__checklist">
+          {services.map((item) => (
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#22c55e" stroke="none"><circle cx="12" cy="12" r="12"/><polyline points="7 12 10.5 15.5 17 9" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div>
+                <strong>{item.title}</strong> {item.desc}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

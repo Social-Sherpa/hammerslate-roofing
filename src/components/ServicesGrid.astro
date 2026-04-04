@@ -6,6 +6,7 @@ import flatRoofImg from '../assets/images/client/flat-roof-rubber-membrane-insta
 import gutteringImg from '../assets/images/client/black-guttering-downpipe-system.jpg';
 import chimneyImg from '../assets/images/client/ChimneyWorkJSVRoofing-640w.webp';
 import emergencyImg from '../assets/images/client/red-tile-roof-blue-protective-tarp.jpg';
+import vanImg from '../assets/images/brand-images/tmppch84kot.webp';
 
 interface Props {
   phone?: string;
@@ -40,8 +41,14 @@ const services = [
       ))}
     </div>
     <div class="mid-cta">
-      <a href="#quote-form" class="btn btn--action">Get Your Free Roofing Quote</a>
-      <span class="mid-cta__phone">Or call us now: <a href={phoneHref}>{phone}</a></span>
+      <div class="mid-cta__content">
+        <a href="#quote-form" class="btn btn--action">Get Your Free Roofing Quote</a>
+        <div class="mid-cta__phone">Call For An Instant Quote</div>
+        <div class="mid-cta__number"><a href={phoneHref}>{phone}</a></div>
+      </div>
+      <div class="mid-cta__van">
+        <Image src={vanImg} alt="Hammerslate Roofing van" widths={[300, 500]} loading="lazy" />
+      </div>
     </div>
   </div>
 </section>

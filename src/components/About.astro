@@ -44,6 +44,12 @@ const gallery = [
             </div>
           ))}
         </div>
+        <button class="about-slider__arrow about-slider__arrow--prev" aria-label="Previous slide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="about-slider__arrow about-slider__arrow--next" aria-label="Next slide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
         <div class="about-slider__dots"></div>
       </div>
       <div class="about-split__content">
@@ -57,7 +63,6 @@ const gallery = [
           <li>No call-out fees, no hidden costs</li>
           <li>24/7 emergency availability</li>
         </ul>
-        <a href="#quote-form" class="btn btn--action">Get a Free Quote</a>
       </div>
     </div>
   </div>
@@ -68,7 +73,11 @@ const gallery = [
   if (slider) {
     const slides = slider.querySelectorAll('.about-slider__slide');
     const dotsContainer = slider.querySelector('.about-slider__dots');
+    const prevBtn = slider.querySelector('.about-slider__arrow--prev');
+    const nextBtn = slider.querySelector('.about-slider__arrow--next');
+    const total = slides.length;
     let current = 0;
+    let interval: ReturnType<typeof setInterval>;
 
     slides[0]?.classList.add('active');
 
@@ -76,22 +85,29 @@ const gallery = [
       const dot = document.createElement('button');
       dot.className = `about-slider__dot${i === 0 ? ' active' : ''}`;
       dot.setAttribute('aria-label', `Show image ${i + 1}`);
-      dot.addEventListener('click', () => goTo(i));
+      dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
       dotsContainer?.appendChild(dot);
     });
 
     const dots = dotsContainer?.querySelectorAll('.about-slider__dot');
 
     function goTo(index: number) {
-      slides[current]?.classList.remove('active');
-      dots?.[current]?.classList.remove('active');
-      current = index;
-      slides[current]?.classList.add('active');
-      dots?.[current]?.classList.add('active');
+      current = ((index % total) + total) % total;
+      slides.forEach((s, i) => s.classList.toggle('active', i === current));
+      dots?.forEach((d, i) => d.classList.toggle('active', i === current));
     }
 
-    setInterval(() => {
-      goTo((current + 1) % slides.length);
-    }, 4000);
+    function startAuto() {
+      interval = setInterval(() => goTo(current + 1), 4000);
+    }
+
+    function stopAuto() {
+      clearInterval(interval);
+    }
+
+    prevBtn?.addEventListener('click', () => { stopAuto(); goTo(current - 1); startAuto(); });
+    nextBtn?.addEventListener('click', () => { stopAuto(); goTo(current + 1); startAuto(); });
+
+    startAuto();
   }
 </script>

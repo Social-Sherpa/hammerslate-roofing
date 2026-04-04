@@ -34,6 +34,10 @@ const {
       question: 'What areas do you cover?',
       answer: "We're based in Enfield and cover Walthamstow and surrounding North London areas. If you're unsure whether we cover your area, give us a call and we'll let you know.",
     },
+    {
+      question: 'Will I have to pay for a consultation or quote?',
+      answer: 'No, Hammerslate keep things very friendly and simple when it comes to visiting your property. Whatever your reason for needing a roofer, we endeavour to treat each and every customer with the same respect and courtesy, no matter how big the job is. Our roofers will visit your property and provide a free, no obligation quotation. Apply below or call us on <a href="tel:02046347883">020 4634 7883</a> to get a price for your job today!',
+    },
   ],
 } = Astro.props;
 ---
@@ -51,7 +55,7 @@ const {
             <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="faq-item__answer-wrapper">
-            <div class="faq-item__answer">{item.answer}</div>
+            <div class="faq-item__answer" set:html={item.answer} />
           </div>
         </div>
       ))}

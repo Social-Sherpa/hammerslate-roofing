@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import bgImg from '../assets/images/brand-images/brand-van-2.jpeg';
+
 interface Props {
   phone?: string;
 }
@@ -8,7 +11,9 @@ const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
 ---
 
 <section class="final-cta">
-  <div class="container">
+  <Image src={bgImg} alt="" class="final-cta__bg" widths={[800, 1200, 1600]} loading="lazy" />
+  <div class="final-cta__overlay"></div>
+  <div class="container final-cta__content">
     <h2>Ready to Fix Your Roof?</h2>
     <p class="final-cta__subtitle">Get a free, no-obligation quote from a team that's been trusted across Enfield for 30 years.</p>
     <div class="final-cta__phone"><a href={phoneHref}>{phone}</a></div>
